@@ -1,52 +1,68 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Sidenav() {
-  return (
-    <div className="w-[20%] h-full border-r-2 border-zinc-600 p-10">
-      <h1 className="text-2xl text-white font-bold">
-        <i className="ri-tv-fill text-[#6556CD] mr-2 "></i>
-        <span className="text-2xl">Moviez Point</span>
-      </h1>
-      <nav className="flex flex-col text-zinc-400 text-xl gap-3">
-        <h1 className="text-white font-semibold text-xl mt-7 mb-5">
-          New Feeds
-        </h1>
-        <Link to="/trending" className="hover:bg-[#6556cd] hover:text-white duration-300 rounded-lg p-3">
-          <i className="mr-2 ri-fire-fill"></i>
-          Trending
-        </Link>
-        <Link className="hover:bg-[#6556cd] hover:text-white duration-300 rounded-lg p-3">
-          <i className="mr-2 ri-bard-fill"></i>
-          Popular
-        </Link>
-        <Link className="hover:bg-[#6556cd] hover:text-white duration-300 rounded-lg p-3">
-          <i className="mr-2 ri-movie-fill"></i>
-          Movies
-        </Link>
+  const { pathname } = useLocation();
 
-        <Link className="hover:bg-[#6556cd] hover:text-white duration-300 rounded-lg p-3">
-          <i className="mr-2 ri-tv-2-fill"></i>
-          Tv Shows
-        </Link>
-        <Link className="hover:bg-[#6556cd] hover:text-white duration-300 rounded-lg p-3">
-          <i className="mr-2 ri-user-2-fill"></i>
-          People
-        </Link>
+  const links = [
+    { to: "/trending", icon: "ri-fire-fill", label: "Trending" },
+    { to: "/popular", icon: "ri-bard-fill", label: "Popular" },
+    { to: "/movies", icon: "ri-movie-fill", label: "Movies" },
+    { to: "/tv", icon: "ri-tv-2-fill", label: "Tv Shows" },
+    { to: "/person", icon: "ri-user-2-fill", label: "People" },
+    
+  ];
+
+  const infoLinks = [
+    { to: "/about", icon: "ri-information-2-fill", label: "About MP" },
+    { to: "/contact", icon: "ri-phone-fill", label: "Contact Us" },
+  ];
+
+  return (
+    <div className="hidden md:flex flex-col w-[20%] h-full border-r border-zinc-700 p-6 bg-[#1f1e24]">
+      <h1 className="text-2xl text-white font-bold flex items-center mb-6">
+        <i className="ri-tv-fill text-[#6556CD] mr-2"></i>
+        <span>Moviez Point</span>
+      </h1>
+
+      <nav className="flex flex-col text-zinc-400 text-lg gap-2">
+        <h2 className="text-white font-semibold mt-4 mb-2">New Feeds</h2>
+        {links.map((item, idx) => (
+          <Link
+            key={idx}
+            to={item.to}
+            className={`flex items-center p-3 rounded-lg duration-300 
+              ${
+                pathname === item.to
+                  ? "bg-[#6556cd] text-white shadow-md"
+                  : "hover:bg-[#6556cd] hover:text-white"
+              }`}
+          >
+            <i className={`mr-3 ${item.icon}`}></i>
+            {item.label}
+          </Link>
+        ))}
       </nav>
-      <hr />
-      <nav className="flex flex-col text-zinc-400 text-xl gap-3">
-        <h1 className="text-white font-semibold text-xl mt-7 mb-5">
-          Website Information
-        </h1>
-        <Link className="hover:bg-[#6556cd] hover:text-white duration-300 rounded-lg p-3">
-          <i className="mr-2 ri-information-2-fill"></i>
-          About MP
-        </Link>
-        <Link className="hover:bg-[#6556cd] hover:text-white duration-300 rounded-lg p-3">
-          <i className="mr-2 ri-phone-fill"></i>
-          Contact us
-        </Link>
+
+      <hr className="my-5 border-zinc-700" />
+
+      <nav className="flex flex-col text-zinc-400 text-lg gap-2">
+        <h2 className="text-white font-semibold mt-4 mb-2">Website Info</h2>
+        {infoLinks.map((item, idx) => (
+          <Link
+            key={idx}
+            to={item.to}
+            className={`flex items-center p-3 rounded-lg duration-300 
+              ${
+                pathname === item.to
+                  ? "bg-[#6556cd] text-white shadow-md"
+                  : "hover:bg-[#6556cd] hover:text-white"
+              }`}
+          >
+            <i className={`mr-3 ${item.icon}`}></i>
+            {item.label}
+          </Link>
+        ))}
       </nav>
     </div>
   );
