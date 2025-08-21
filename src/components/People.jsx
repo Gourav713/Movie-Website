@@ -7,7 +7,7 @@ import Cards from "./templets/Cards";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 function People() {
-     document.title = "MP | person ";
+     document.title = "MP | Person ";
      const navigate = useNavigate();
      const [category, setCategory] = useState("popular");
      const [person, setPerson] = useState([]);
@@ -48,7 +48,7 @@ function People() {
         hasMore={true}
         loader={<Loading />}
       >
-        <Cards data={person} title={category} />
+        <Cards data={person} title="person" />
       </InfiniteScroll>
     </div>
   ) : (

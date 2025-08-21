@@ -25,7 +25,7 @@ function Header({ data }) {
         {data.overview
           ? `${data.overview.slice(0, 200)}...`
           : "No description available."}
-        <Link className="text-blue-400">more</Link>
+        <Link to={`${data.media_type}/details/${data.id}`} className="text-blue-400">more</Link>
       </p>
       <p>
         <i className="text-yellow-500 mx-1 ri-calendar-2-fill"></i>

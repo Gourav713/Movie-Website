@@ -6,7 +6,7 @@ function Cards({ data, title }) {
   return (
     <div className="px-[3%] flex flex-wrap w-full bg-[#1f1e24]">
       {data.map((item, index) => (
-        <Link className="relative w-[27vh] ml-18 mt-5 mb-3 " key={index}>
+        <Link to={`/${data.media_type || title}/details/${item.id}`} className="relative w-[27vh] ml-18 mt-5 mb-3 " key={index}>
           <img
             className="h-[33vh] shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] object-cover"
             src={
