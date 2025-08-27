@@ -12,6 +12,8 @@ import TvDetails from "./components/TvDetails";
 import Trailer from "./components/templets/Trailer";
 import About from "./components/About";
 import ContactUs from "./components/ConntactUs";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsAndServices from "./components/TermsAndServices";
 function App() {
   return (
     <div className=" bg-[#1f1e24] h-full w-full flex">
@@ -31,6 +33,8 @@ function App() {
         <Route path="/person/details/:id" element={<PersonDetails />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsAndServices />} />
       </Routes>
     </div>
   );

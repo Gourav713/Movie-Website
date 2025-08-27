@@ -49,32 +49,6 @@ function Sidenav() {
           </p>
         </div>
 
-        {/* Quick Stats */}
-        <div className="mb-6">
-          <div className="bg-[#252431] rounded-xl p-4 border border-zinc-700/50">
-            <h3 className="text-white font-semibold text-sm mb-3 flex items-center">
-              <i className="ri-bar-chart-fill text-[#6556CD] mr-2"></i>
-              Quick Stats
-            </h3>
-            <div className="grid grid-cols-1 gap-2">
-              {quickStats.map((stat, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center justify-between text-sm"
-                >
-                  <div className="flex items-center text-zinc-400">
-                    <i
-                      className={`${stat.icon} text-[#6556CD] mr-2 text-xs`}
-                    ></i>
-                    {stat.label}
-                  </div>
-                  <span className="text-white font-semibold">{stat.count}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
         {/* Main Navigation */}
         <nav className="flex flex-col text-zinc-400 text-lg gap-1 mb-6">
           <h2 className="text-white font-semibold mb-3 flex items-center text-sm uppercase tracking-wide">

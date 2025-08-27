@@ -35,7 +35,7 @@ function Popular() {
         setPage((prev) => prev + 1);
       }
       setTotalResults(data.total_results);
-      setHasMore(currentPage < data.total_pages && data.total_pages <= 500);
+      // setHasMore(currentPage < data.total_pages && data.total_pages <= 500);
     } catch (error) {
       setError("Failed to load popular content. Please try again.");
     } finally {

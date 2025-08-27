@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import profileImg from "../assets/profile.jpg";
 
 function About() {
+  const navigate = useNavigate();
   const features = [
     {
       icon: "ri-movie-2-fill",
@@ -50,33 +53,25 @@ function About() {
   const teamMembers = [
     {
       name: "Gourav Raj verma",
-      role: "Founder & CEO",
-      image: "AJ",
+      role: "Frontend Developer",
+      image: profileImg,
       description:
-        "Visionary leader with 10+ years in entertainment technology.",
-    },
-    {
-      name: "Sarah Chen",
-      role: "Chief Technology Officer",
-      image: "SC",
-      description: "Tech innovator ensuring seamless streaming experiences.",
-    },
-    {
-      name: "Michael Brown",
-      role: "Content Director",
-      image: "MB",
-      description: "Curating the best entertainment content worldwide.",
-    },
-    {
-      name: "Emily Davis",
-      role: "User Experience Lead",
-      image: "ED",
-      description: "Designing intuitive and engaging user interfaces.",
+        "A passionate Frontend Developer with a strong foundation in HTML, CSS, JavaScript, and React. Currently building projects and sharpening DSA in Java.",
     },
   ];
 
   return (
     <div className="min-h-screen bg-[#1f1e24] text-white overflow-x-hidden">
+      {/* Back Button */}
+      <div className="w-full max-w-7xl mx-auto px-4 pt-8 pb-2">
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center gap-2 px-4 py-2 bg-black/30 hover:bg-black/50 rounded-lg backdrop-blur-sm text-white font-medium transition-all duration-200 mb-4"
+        >
+          <i className="ri-arrow-left-line text-xl"></i>
+          Back
+        </button>
+      </div>
       {/* Hero Section */}
       <div className="relative">
         {/* Background Pattern */}
@@ -187,33 +182,41 @@ function About() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-white">
-              Meet Our Team
+              Meet Our Developer
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              The passionate individuals behind Moviez Point, working tirelessly
+              The passionate individual behind Moviez Point, working tirelessly
               to bring you the best entertainment experience.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="text-center group">
-                <div className="bg-gradient-to-br from-[#1f1e24] to-[#252431] rounded-2xl p-8 border border-zinc-700/50 hover:border-[#6556CD]/50 transition-all duration-300 hover:transform hover:-translate-y-2">
-                  <div className="w-20 h-20 bg-gradient-to-r from-[#6556CD] to-[#8b7ae6] rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 group-hover:shadow-lg group-hover:shadow-[#6556CD]/20 transition-all duration-300">
-                    {member.image}
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {member.name}
-                  </h3>
-                  <p className="text-[#6556CD] font-medium mb-4">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    {member.description}
-                  </p>
+          <div className="flex justify-center">
+            <a
+              href="https://linkedin.com/in/gouravraj-verma"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full max-w-sm text-center group no-underline"
+              title="View LinkedIn Profile"
+            >
+              <div className="bg-gradient-to-br from-[#1f1e24] to-[#252431] rounded-2xl p-8 border border-zinc-700/50 hover:border-[#6556CD]/50 transition-all duration-300 hover:transform hover:-translate-y-2 mx-auto cursor-pointer">
+                <div className="w-32 h-32 bg-gradient-to-r from-[#6556CD] to-[#8b7ae6] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg group-hover:shadow-[#6556CD]/20 transition-all duration-300 overflow-hidden">
+                  <img
+                    src={teamMembers[0].image}
+                    alt={teamMembers[0].name}
+                    className="w-full h-full object-cover rounded-full border-2 border-[#6556CD] shadow"
+                  />
                 </div>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {teamMembers[0].name}
+                </h3>
+                <p className="text-[#6556CD] font-medium mb-4">
+                  {teamMembers[0].role}
+                </p>
+                <p className="text-gray-300 text-base leading-relaxed">
+                  {teamMembers[0].description}
+                </p>
               </div>
-            ))}
+            </a>
           </div>
         </div>
       </div>
@@ -330,9 +333,24 @@ function About() {
                 <div className="w-10 h-10 bg-[#6556CD] rounded-lg flex items-center justify-center hover:bg-[#7c6bd3] transition-colors cursor-pointer">
                   <i className="ri-facebook-fill text-white"></i>
                 </div>
-                <div className="w-10 h-10 bg-[#6556CD] rounded-lg flex items-center justify-center hover:bg-[#7c6bd3] transition-colors cursor-pointer">
+                <a
+                  href="https://www.instagram.com/gxurav7_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-[#6556CD] rounded-lg flex items-center justify-center hover:bg-[#7c6bd3] transition-colors cursor-pointer"
+                  title="Instagram"
+                >
                   <i className="ri-instagram-fill text-white"></i>
-                </div>
+                </a>
+                <a
+                  href="https://linkedin.com/in/gouravraj-verma"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-[#6556CD] rounded-lg flex items-center justify-center hover:bg-[#7c6bd3] transition-colors cursor-pointer"
+                  title="LinkedIn"
+                >
+                  <i className="ri-linkedin-fill text-white"></i>
+                </a>
               </div>
             </div>
           </div>

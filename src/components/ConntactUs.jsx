@@ -43,14 +43,14 @@ function ContactUs() {
       icon: "ri-customer-service-2-fill",
       title: "24/7 Support",
       description: "Get instant help from our support team",
-      contact: "support@moviezpoint.com",
+      contact: "gouravpatel344@gmail.com",
       action: "Email Now",
     },
     {
       icon: "ri-phone-fill",
       title: "Phone Support",
       description: "Speak directly with our experts",
-      contact: "+1 (555) 123-4567",
+      contact: "+91 62695-73188",
       action: "Call Now",
     },
     {
@@ -64,7 +64,7 @@ function ContactUs() {
       icon: "ri-map-pin-fill",
       title: "Visit Us",
       description: "Come to our headquarters",
-      contact: "123 Entertainment St, LA",
+      contact: "Khajrana Square, Indore(M.P)",
       action: "Get Directions",
     },
   ];
@@ -420,13 +420,12 @@ function ContactUs() {
                     Headquarters
                   </h4>
                   <p className="text-gray-300 leading-relaxed">
-                    123 Entertainment Boulevard
+                    Paliwal Multi <br />
+                    452001
                     <br />
-                    Suite 456
+                    Indore, Madhya Pradesh
                     <br />
-                    Los Angeles, CA 90210
-                    <br />
-                    United States
+                    India{" "}
                   </p>
                 </div>
                 <div className="flex items-center space-x-4 pt-4">
@@ -471,21 +470,46 @@ function ContactUs() {
                 icon: "ri-instagram-fill",
                 name: "Instagram",
                 followers: "156K",
+                url: "https://www.instagram.com/gxurav7_/",
               },
               { icon: "ri-youtube-fill", name: "YouTube", followers: "234K" },
-              { icon: "ri-linkedin-fill", name: "LinkedIn", followers: "45K" },
+              {
+                icon: "ri-linkedin-fill",
+                name: "LinkedIn",
+                followers: "45K",
+                url: "https://linkedin.com/in/gouravraj-verma",
+              },
               { icon: "ri-discord-fill", name: "Discord", followers: "67K" },
-            ].map((social, index) => (
-              <div key={index} className="group text-center">
+            ].map((social, index) => {
+              const isLink = !!social.url;
+              const iconDiv = (
                 <div className="w-16 h-16 bg-gradient-to-r from-[#6556CD] to-[#8b7ae6] rounded-2xl flex items-center justify-center mb-3 group-hover:shadow-lg group-hover:shadow-[#6556CD]/20 transition-all duration-300 cursor-pointer group-hover:transform group-hover:scale-110">
                   <i className={`${social.icon} text-2xl text-white`}></i>
                 </div>
-                <p className="text-white font-medium text-sm">{social.name}</p>
-                <p className="text-gray-400 text-xs">
-                  {social.followers} followers
-                </p>
-              </div>
-            ))}
+              );
+              return (
+                <div key={index} className="group text-center">
+                  {isLink ? (
+                    <a
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={social.name}
+                    >
+                      {iconDiv}
+                    </a>
+                  ) : (
+                    iconDiv
+                  )}
+                  <p className="text-white font-medium text-sm">
+                    {social.name}
+                  </p>
+                  <p className="text-gray-400 text-xs">
+                    {social.followers} followers
+                  </p>
+                </div>
+              );
+            })}
           </div>
 
           {/* Newsletter Signup */}
