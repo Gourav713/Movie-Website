@@ -35,7 +35,7 @@ function People() {
         setPage((prev) => prev + 1);
       }
       setTotalResults(data.total_results);
-      setHasMore(currentPage < data.total_pages && data.total_pages <= 500);
+      // setHasMore(currentPage < data.total_pages && data.total_pages <= 500);
     } catch (error) {
       setError("Failed to load people. Please try again.");
     } finally {
