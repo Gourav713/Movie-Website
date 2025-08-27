@@ -10,7 +10,7 @@ export const asyncloadmovie = (id) => async (dispatch, getState) => {
     const similar = await axios.get(`/movie/${id}/similar`);
     const videos = await axios.get(`/movie/${id}/videos`);
     const watchproviders = await axios.get(`/movie/${id}/watch/providers`);
-    const credits = await axios.get(`/movie/${id}/credits`); // 👈 added
+    const credits = await axios.get(`/movie/${id}/credits`);
 
     let theultimatedetail = {
       detail: detail.data,
@@ -19,7 +19,7 @@ export const asyncloadmovie = (id) => async (dispatch, getState) => {
       similar: similar.data.results,
       videos: videos.data.results.find((m) => m.type === "Trailer"),
       watchproviders: watchproviders.data.results.IN,
-      credits: credits.data, // 👈 added
+      credits: credits.data,
     };
 
     dispatch(loadmovie(theultimatedetail));

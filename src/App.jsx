@@ -8,8 +8,10 @@ import Tvshows from "./components/Tvshows";
 import People from "./components/People";
 import MovieDetails from "./components/MovieDetails";
 import PersonDetails from "./components/PersonDetails";
-import TvDetails from "./components/tvDetails";
-
+import TvDetails from "./components/TvDetails";
+import Trailer from "./components/templets/Trailer";
+import About from "./components/About";
+import ContactUs from "./components/ConntactUs";
 function App() {
   return (
     <div className=" bg-[#1f1e24] h-full w-full flex">
@@ -17,12 +19,18 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/trending" element={<Trending />} />
         <Route path="/popular" element={<Popular />} />
-        <Route path="/movie" element={<Movies />}/>
-        <Route path="/movie/details/:id" element={<MovieDetails />} />
-        <Route path="/tv" element={<Tvshows />}/>
-        <Route path="/tv/details/:id" element={<TvDetails />} />
-        <Route path="/person" element={<People />}/>
+        <Route path="/movie" element={<Movies />} />
+        <Route path="/movie/details/:id" element={<MovieDetails />}>
+          <Route path="/movie/details/:id/trailer" element={<Trailer />} />
+        </Route>
+        <Route path="/tv" element={<Tvshows />} />
+        <Route path="/tv/details/:id" element={<TvDetails />}>
+          <Route path="/tv/details/:id/trailer" element={<Trailer />} />
+        </Route>
+        <Route path="/person" element={<People />} />
         <Route path="/person/details/:id" element={<PersonDetails />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </div>
   );
